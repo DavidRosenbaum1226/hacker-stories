@@ -35,16 +35,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      { list.map((item) => (
-          <li key={item.objectID}>
-            <span>
-                <a href={item.url}>{item.title}</a>
-              </span>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
-            </li>))
-      }
+      <List></List>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -58,6 +49,25 @@ function App() {
       </p>
     </>
   )
+}
+
+function List() {
+  return (
+    <ul>
+      {list.map(function (item) {
+        return (
+          <li key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default App
