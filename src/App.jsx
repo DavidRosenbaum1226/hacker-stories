@@ -12,17 +12,17 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       {// Use js map to map the words into separate lines
-        words.map((word) => (
-          // One line per word
-          <div>{word}</div>))
+       // Give the divs unique keys
+        words.map((word, index) => (
+          <div key={index}>{word}</div>))
       }
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
