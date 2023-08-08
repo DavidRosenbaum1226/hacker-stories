@@ -3,8 +3,24 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-// Create an array of words
-const words = ['one', 'two', 'three']
+const list = [
+  {
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+];
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,10 +35,15 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      {// Use js map to map the words into separate lines
-       // Give the divs unique keys
-        words.map((word, index) => (
-          <div key={index}>{word}</div>))
+      { list.map((item) => (
+          <li key={item.objectID}>
+            <span>
+                <a href={item.url}>{item.title}</a>
+              </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </li>))
       }
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
