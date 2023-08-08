@@ -3,10 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-const welcome = {
-  greeting: 'Hey',
-  title: 'React',
-}
+// Create an array of words
+const words = ['one', 'two', 'three']
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +19,11 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>{welcome.greeting} {welcome.title}</h1>
+      {// Use js map to map the words into separate lines
+        words.map((word) => (
+          // One line per word
+          <div>{word}</div>))
+      }
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
